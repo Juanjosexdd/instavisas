@@ -2,11 +2,14 @@
 
 @section('title', 'INSTAVISAS | CREAR TRAMITE')
 
-@section('content')
-    @include('sweetalert::alert')
+@section('content_header')
     <x-card-header>
         <h3 class="text-white">Crear nuevo tramite</h3>
     </x-card-header>
+@stop
+@section('content')
+    @include('sweetalert::alert')
+
     <x-card-body>
 
         {!! Form::open(['route' => 'tramites.store']) !!}

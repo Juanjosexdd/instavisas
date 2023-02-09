@@ -2,17 +2,15 @@
 
 @section('title', 'INSTAVISAS | LISTADO DE CLIENTES ')
 
-@section('content')
-@include('sweetalert::alert')
-
-
+@section('content_header')
     <x-card-header class="">
         <h3 class="text-white pt-2">Lista de citas de pasaporte</h3>
     </x-card-header>
+@stop
 
-
+@section('content')
+    @include('sweetalert::alert')
     @livewire('clientes.show-citapasaporte')
-
 @endsection
 
 @section('js')
@@ -26,7 +24,5 @@
         $(function() {
             $('[data-toggle="tooltip"]').tooltip()
         })
-
     </script>
-
 @stop

@@ -28,7 +28,7 @@ class ShowRenovacion extends Component
             ->where('email', 'like', '%' . $this->search . '%')
             ->orderBy($this->sort, $this->direction)
             ->paginate(10);
-        return view('livewire.clientes.show-renovacion');
+        return view('livewire.clientes.show-renovacion', compact('clientes'));
             
             
 

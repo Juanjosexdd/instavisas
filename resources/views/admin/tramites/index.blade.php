@@ -2,16 +2,15 @@
 
 @section('title', 'InstaVisas | Tramites')
 
+@section('content_header')
+    <x-card-header class="">
+        <h3 class="text-white pt-2">Lista de tramites</h3>
+    </x-card-header>
+@stop
+
 @section('content')
-@include('sweetalert::alert')
-
-
-<x-card-header class="">
-    <h3 class="text-white pt-2">Lista de tramites</h3>
-</x-card-header>
-
+    @include('sweetalert::alert')
     @livewire('tramites.show-tramite')
-
 @endsection
 
 @section('js')
@@ -25,7 +24,6 @@
         $(function() {
             $('[data-toggle="tooltip"]').tooltip()
         })
-
     </script>
 
 @stop

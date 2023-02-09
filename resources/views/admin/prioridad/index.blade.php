@@ -2,17 +2,15 @@
 
 @section('title', 'INSTAVISAS | LISTADO DE CLIENTES ')
 
+@section('content_header')
+<x-card-header class="">
+    <h3 class="text-white pt-2">Lista de prioridad</h3>
+</x-card-header>
+@stop
+
 @section('content')
-@include('sweetalert::alert')
-
-
-    <x-card-header class="">
-        <h3 class="text-white pt-2">Lista de prioridad</h3>
-    </x-card-header>
-
-
+    @include('sweetalert::alert')
     @livewire('clientes.show-prioridad')
-
 @endsection
 
 @section('js')
@@ -26,7 +24,6 @@
         $(function() {
             $('[data-toggle="tooltip"]').tooltip()
         })
-
     </script>
 
 @stop
