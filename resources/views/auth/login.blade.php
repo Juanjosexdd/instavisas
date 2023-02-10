@@ -64,9 +64,7 @@
 							<h2 class="text-center text-primary">Iniciar Sesión</h2>
 						</div>
 						<form method="POST" action="{{ route('login') }}">
-                            @csrf
-                
-                            <div>
+                            @csrf                            <div>
                                 <x-jet-label for="email" value="{{ __('Correo Electronico') }}" />
                                 <x-jet-input id="email" class="block form-control mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
                             </div>
