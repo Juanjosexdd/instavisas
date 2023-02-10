@@ -19,10 +19,7 @@
         "realrashid/sweet-alert": "^5.1"
     },
     "require-dev": {
-        "laravel-lang/attributes": "^2.1",
         "laravel-lang/http-statuses": "^3.2",
-        "laravel-lang/lang": "^12.15",
-        "laravel-lang/publisher": "^14.6",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
