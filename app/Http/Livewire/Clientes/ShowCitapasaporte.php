@@ -21,7 +21,7 @@ class ShowCitapasaporte extends Component
 
     public function render()
     {
-        $clientes = Cliente::where('tipotramite_id', '==', 7)
+        $clientes = Cliente::where('tipotramite_id', 7)
             ->where('name', 'like', '%' . $this->search . '%')
             ->where('last_name', 'like', '%' . $this->search . '%')
             ->where('identification', 'like', '%' . $this->search . '%')

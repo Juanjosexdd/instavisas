@@ -21,7 +21,7 @@ class ShowEstudiante extends Component
 
     public function render()
     {
-        $clientes = Cliente::where('tipotramite_id', '==', 5)
+        $clientes = Cliente::where('tipotramite_id', 5)
             ->where('name', 'like', '%' . $this->search . '%')
             ->where('last_name', 'like', '%' . $this->search . '%')
             ->where('identification', 'like', '%' . $this->search . '%')

@@ -1,9 +1,17 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
+@extends('adminlte::page')
+
+@section('title', 'InstaVisas')
+
+@section('css')
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+
+@endsection
+@section('js')
+    <script src="{{ mix('js/app.js') }}" defer></script>
+
+@endsection
+@section('content')
+@livewireStyles
 
     <div>
         <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
@@ -42,4 +50,7 @@
             @endif
         </div>
     </div>
-</x-app-layout>
+        @livewireScripts
+
+@endsection
+    
