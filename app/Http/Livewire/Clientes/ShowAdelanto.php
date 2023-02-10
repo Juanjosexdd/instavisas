@@ -28,6 +28,7 @@ class ShowAdelanto extends Component
             ->where('email', 'like', '%' . $this->search . '%')
             ->orderBy($this->sort, $this->direction)
             ->paginate(10);
+            
         return view('livewire.clientes.show-adelanto', compact('clientes'));
             
 
