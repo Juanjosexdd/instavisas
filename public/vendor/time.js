@@ -9,7 +9,7 @@ sessionTimeout({
     //Una vez transcurrido el tiempo de espera, el navegador del usuario será dirigido a esta URL.
     timeOutAfter: 300100,
     //timeOutAfter: 300100,
-    // timeOutUrl: 'login',
+    timeOutUrl: 'login',
     logOutUrl: "auth/login",
     timeOutUrl: "/",
     message: 'Alerta, Deseas mantener la sesion activa?',

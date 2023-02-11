@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'timer' => env('SWEET_ALERT_TIMER', 10000),
+    'timer' => env('SWEET_ALERT_TIMER', 20000),
 
     /*
     |--------------------------------------------------------------------------
@@ -111,7 +111,7 @@ return [
         'enable' => env('SWEET_ALERT_ANIMATION_ENABLE', false),
     ],
 
-    'animatecss' => env('SWEET_ALERT_ANIMATECSS', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css'),
+    'animatecss' => env('SWEET_ALERT_ANIMATECSS', 'https://cdn.jsdelivr.net/npm/animate.css'),
 
     /*
     |--------------------------------------------------------------------------
@@ -154,17 +154,6 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Progress Bar
-    |--------------------------------------------------------------------------
-    | If set to true, a progress bar at the bottom of a popup will be shown.
-    | It can be useful with toasts.
-    |
-    */
-
-    'timer_progress_bar' => env('SWEET_ALERT_TIMER_PROGRESS_BAR', false),
-
-    /*
-    |--------------------------------------------------------------------------
     | Middleware
     |--------------------------------------------------------------------------
     | Modal window or toast, config for the Middleware
@@ -179,7 +168,7 @@ return [
 
         'toast_close_button' => env('SWEET_ALERT_MIDDLEWARE_TOAST_CLOSE_BUTTON', true),
 
-        'timer' => env('SWEET_ALERT_MIDDLEWARE_ALERT_CLOSE_TIME', 6000),
+        'timer' => env('SWEET_ALERT_MIDDLEWARE_ALERT_CLOSE_TIME', 20000),
 
         'auto_display_error_messages' => env('SWEET_ALERT_AUTO_DISPLAY_ERROR_MESSAGES', false),
     ],

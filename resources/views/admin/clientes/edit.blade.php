@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'INSTAVISAS | EDITAR CLIENTE')
+@section('title', 'InstaVisa | EDITAR CLIENTE')
 
 
 @section('content')

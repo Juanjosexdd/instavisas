@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'INSTAVISAS | LISTADO DE CLIENTES ')
+@section('title', 'InstaVisa | LISTADO DE CLIENTES ')
 
 @section('content_header')
     <x-card-header class="">

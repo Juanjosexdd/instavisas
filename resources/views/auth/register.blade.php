@@ -1,60 +1,51 @@
 <x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot>
+    <!-- component -->
+    <div class="font-sans">
+        <div class="relative min-h-screen flex flex-col sm:justify-center items-center bg-gray-100 ">
+            <div class="relative sm:max-w-sm w-full">
+                <div class="card bg-blue-400 shadow-lg  w-full h-full rounded-3xl absolute  transform -rotate-6"></div>
+                <div class="card bg-red-400 shadow-lg  w-full h-full rounded-3xl absolute  transform rotate-6"></div>
+                <div class="relative w-full rounded-3xl  px-6 py-4 bg-gray-100 shadow-md">
+                    <label for="" class="block text-sm text-gray-700 text-center font-semibold">
+                        Registro
+                    </label>
+                    <form method="POST" action="{{ route('register') }}">
+                        @csrf
 
-        <x-jet-validation-errors class="mb-4" />
-
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
-
-            <div>
-                <x-jet-label for="name" value="{{ __('Name') }}" />
-                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            </div>
-
-            <div class="mt-4">
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
-            </div>
-
-            <div class="mt-4">
-                <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
-            </div>
-
-            <div class="mt-4">
-                <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
-            </div>
-
-            @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                <div class="mt-4">
-                    <x-jet-label for="terms">
-                        <div class="flex items-center">
-                            <x-jet-checkbox name="terms" id="terms" required />
-
-                            <div class="ml-2">
-                                {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
-                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
-                                ]) !!}
-                            </div>
+                        <div>
+                            <input type="text" placeholder="Name"
+                                class="mt-1 block w-full border-solid border border-blue-500 bg-gray-100 h-11 rounded-md shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
+                                id="name" name="name" :value="old('name')" required autofocus autocomplete="name">
                         </div>
-                    </x-jet-label>
+
+                        <div class="mt-7">
+                            <input type="email" placeholder="Email"
+                                class="mt-1 block w-full border border-blue-500 bg-gray-100 h-11 rounded-md shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
+                                id="email" name="email" :value="old('email')" required>
+                        </div>
+
+                        <div class="mt-7">
+                            <input type="password" placeholder="Contraseña"
+                                class="mt-1 block w-full border border-blue-500 bg-gray-100 h-11 rounded-md shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
+                                id="password" name="password" required autocomplete="new-password">
+                        </div>
+
+                        <div class="mt-7">
+                            <input type="password" placeholder="Confirmar contraseña"
+                                class="mt-1 block w-full border border-blue-500 v bg-gray-100 h-11 rounded-md shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
+                                id="password_confirmation" name="password_confirmation" required
+                                autocomplete="new-password">
+                        </div>
+
+                        <div class="mt-7">
+                            <button
+                                class="bg-blue-500 w-full py-3 rounded-xl text-white shadow-xl hover:shadow-inner focus:outline-none transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
+                                Registrar
+                            </button>
+                        </div>
+                    </form>
                 </div>
-            @endif
-
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-jet-button class="ml-4">
-                    {{ __('Register') }}
-                </x-jet-button>
             </div>
-        </form>
-    </x-jet-authentication-card>
+        </div>
+    </div>
 </x-guest-layout>

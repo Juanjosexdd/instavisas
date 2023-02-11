@@ -50,11 +50,13 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'name' => 'required',
-        //     'slug' => 'required|unique:tramites',
-        //     'costo' => 'required',
-        // ]);
+        $request->validate([
+            'name' => 'required',
+            'slug' => 'required|unique:tramites',
+            'last_name' => 'required',
+            'identification' => 'required',
+            'email' => 'required',
+        ]);
         $cliente = Cliente::create($request->all());
         
         if ($request->tramites)
@@ -108,11 +110,13 @@ class ClienteController extends Controller
      */
     public function update(Request $request, Cliente $cliente)
     {
-        // $request->validate([
-        //     'name' => 'required',
-        //     'slug' => "required|unique:tramites,slug,$tramite->id",
-        //     'costo' => 'required'
-        // ]);
+        $request->validate([
+            'name' => 'required',
+            'slug' => "required|unique:clientes,slug,$cliente->id",
+            'last_name' => 'required',
+            'identification' => 'required',
+            'email' => 'required',
+        ]);
         
 
         $cliente->update($request->all());

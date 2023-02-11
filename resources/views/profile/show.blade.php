@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'InstaVisas')
+@section('title', 'MAKRO | PERFIL DE USUARIO')
 
 @section('css')
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
@@ -10,47 +10,68 @@
     <script src="{{ mix('js/app.js') }}" defer></script>
 
 @endsection
+
 @section('content')
-@livewireStyles
+    <x-card-header>
+        <h3 class="text-white h3">Perfil de {{ auth()->user()->display_user }}</h3>
+    </x-card-header>
+    <div class="container">
+        <div class="card elevation-4 col-md-12 col-sm-12" style="border-radius: 0.95rem">
+            <div class="card-body">
+                <div class="row justify-content">
+                    <div class="col-md-8">
+                        <p class="h3 text-blue">Información Personal</p>
+                        <hr>
+                        @if (Laravel\Fortify\Features::canUpdateProfileInformation())
+                            @livewire('profile.update-profile-information-form')
 
-    <div>
-        <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
-            @if (Laravel\Fortify\Features::canUpdateProfileInformation())
-                @livewire('profile.update-profile-information-form')
+                        @endif
+                        <br>
+                        <p class="h3 text-blue">Actualizar Contraseña</p>
+                        <hr>
 
-                <x-jet-section-border />
-            @endif
+                        @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))
+                            <div class="mt-4 sm:mt-0">
+                                @livewire('profile.update-password-form')
+                            </div>
 
-            @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))
-                <div class="mt-10 sm:mt-0">
-                    @livewire('profile.update-password-form')
+                            <x-jet-section-border />
+                        @endif
+                    </div>
+
                 </div>
-
-                <x-jet-section-border />
-            @endif
-
-            @if (Laravel\Fortify\Features::canManageTwoFactorAuthentication())
-                <div class="mt-10 sm:mt-0">
-                    @livewire('profile.two-factor-authentication-form')
-                </div>
-
-                <x-jet-section-border />
-            @endif
-
-            <div class="mt-10 sm:mt-0">
-                @livewire('profile.logout-other-browser-sessions-form')
             </div>
-
-            @if (Laravel\Jetstream\Jetstream::hasAccountDeletionFeatures())
-                <x-jet-section-border />
-
-                <div class="mt-10 sm:mt-0">
-                    @livewire('profile.delete-user-form')
-                </div>
-            @endif
         </div>
     </div>
-        @livewireScripts
+    @livewireScripts
 
-@endsection
-    
+@stop
+
+@section('js')
+    <script>
+        function sendMarkRequest(id = null) {
+            return $.ajax("{{ route('markNotification') }}", {
+                method: 'POST',
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    id
+                }
+            });
+        }
+        $(function() {
+            $('.mark-as-read').click(function() {
+                let request = sendMarkRequest($(this).data('id'));
+                request.done(() => {
+                    $(this).parents('div.alert').remove();
+                });
+            });
+            $('#mark-all').click(function() {
+                let request = sendMarkRequest();
+
+                request.done(() => {
+                    $('div.alert').remove();
+                })
+            });
+        });
+    </script>
+@stop

@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'INSTAVISAS | EDITAR TRAMITE')
+@section('title', 'InstaVisa | EDITAR TRAMITE')
 @section('content_header')
     <x-card-header>
         <h3 class="text-white">Editar tramite {{ $tramite->name }} </h3>

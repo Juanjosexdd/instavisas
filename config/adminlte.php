@@ -131,7 +131,7 @@ return [
 
     'usermenu_enabled' => true,
     'usermenu_header' => true,
-    'usermenu_header_class' => 'bg-primary',
+    'usermenu_header_class' => 'bg-navy',
     'usermenu_image' => false,
     'usermenu_desc' => false,
     'usermenu_profile_url' => false,
@@ -150,8 +150,8 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
-    'layout_fixed_navbar' => true,
+    'layout_fixed_sidebar' => true,
+    'layout_fixed_navbar' => null,
     'layout_fixed_footer' => null,
     'layout_dark_mode' => null,
 
@@ -276,7 +276,6 @@ return [
     'enabled_laravel_mix' => false,
     'laravel_mix_css_path' => 'css/app.css',
     'laravel_mix_js_path' => 'js/app.js',
-
     /*
     |--------------------------------------------------------------------------
     | Menu Items
@@ -290,96 +289,126 @@ return [
     */
 
     'menu' => [
-        // Navbar items:
         [
-            'type'         => 'navbar-search',
-            'text'         => 'search',
-            'topnav_right' => true,
+            'text' => 'blog',
+            'url'  => 'admin/blog',
+            'can'  => 'manage-blog',
         ],
         [
-            'type'         => 'fullscreen-widget',
-            'topnav_right' => true,
+            'text'        => 'Inicio',
+            'url'         => 'admin',
+            'icon'        => 'fas fa-tachometer-alt fa-fw text-blue'
         ],
-
-        // Sidebar items:
         [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
+            'text'        => 'Mi Perfil',
+            'url'         => 'user/profile',
+            'icon'        => 'fas fa-user text-blue'
         ],
-        
         [
             'header' => 'GESTIÓN DE TRAMITES '
         ],
         [
             'text' => 'Gestion de clientes',
             'route'  => 'clientes.index',
-            'icon' => 'fas fa-fw fa-users-cog',
+            'icon' => 'fas text-blue fa-fw fa-users-cog',
             'active' => ['admin/clientes*'],
         ],
         [
             'text' => 'Renovación',
             'route'  => 'renovaciones.index',
-            'icon' => 'fas fa-recycle',
+            'icon' => 'fas text-blue fa-recycle',
             'active' => ['admin/renovaciones*'],
         ],
         
         [
             'text' => 'Seguimiento',
             'route'  => 'seguimientos.index',
-            'icon' => 'fas fa-recycle',
+            'icon' => 'fas text-blue fa-recycle',
             'active' => ['admin/seguimientos*'],
         ],    
         [
             'text' => 'Adelanto',
             'route'  => 'adelantos.index',
-            'icon' => 'fas fa-recycle',
+            'icon' => 'fas text-blue fa-recycle',
             'active' => ['admin/adelantos*'],
         ],
         [
             'text' => 'Prioridad',
             'route'  => 'prioridad.index',
-            'icon' => 'fas fa-user-astronaut',
+            'icon' => 'fas text-blue fa-user-astronaut',
             'active' => ['admin/prioridad*'],
         ],
         
         [
             'text' => 'Estudiante',            
             'route'  => 'estudiantes.index',
-            'icon' => 'fas fa-user-graduate',
+            'icon' => 'fas text-blue fa-user-graduate',
             'active' => ['admin/estudiantes*'],
         ],
         
         [
             'text' => 'Canadá',
             'route'  => 'canada.index',
-            'icon' => 'fab fa-canadian-maple-leaf',
+            'icon' => 'fab text-blue fa-canadian-maple-leaf',
             'active' => ['admin/canada*'],
         ],
         [
             'text' => 'Cita Pasaporte',
             'route'  => 'citapasaporte.index',
-            'icon' => 'far fa-calendar-check',
+            'icon' => 'far text-blue fa-calendar-check',
             'active' => ['admin/citapasaporte*'],
         ],
-        
-        ['header' => 'CONFIGURACIÓN DE SISTEMA'],
-        
         [
-            'text' => 'Tramites',
-            'route'  => 'tramites.index',
-            'icon' => 'fas fa-file-invoice',
-            'active' => ['admin/tramites*'],
+            'header' => 'AJUSTES DE SISTEMA',
+            // 'can'  => 'ajustessistema'
         ],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'header' => 'SEGURIDAD DEL SISTEMA',
+            // 'can'  => 'seguridadsistema'
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text'    => 'SEGURIDAD SISTEMA',
+            'icon'    => 'fas fa-fw fa-user-shield text-blue',
+            // 'can'  => 'seguridadsistema',
+            'submenu' => [
+                [
+                    'text' => 'Usuarios',
+                    'route'  => 'admin.users.index',
+                    'icon' => 'fas fa-fw fa-users-cog text-blue',
+                    'active' => ['admin/users*'],
+                    'can'    => 'admin.users.index',
+                ],
+                [
+                    'text' => 'Roles y permisos',
+                    'route'  => 'admin.roles.index',
+                    'icon' => 'fas fa-code-branch text-blue',
+                    'active' => ['admin/roles*'],
+                    'can' => 'admin.roles.index',
+                ],
+                [
+                    'text' => 'Registros',
+                    'route'  => 'admin.logs.index',
+                    'icon' => 'fas fa-clipboard-list text-blue',
+                    'active' => ['admin/logs*'],
+                    'can' => 'admin.logs.index',
+                ],
+                [
+                    'text' => 'Sesiones',
+                    'route'  => 'admin.logins.index',
+                    'icon' => 'fas fa-traffic-light text-blue',
+                    'active' => ['admin/logins*'],
+                    'can' => 'admin.logins.index',
+                ],
+                [
+                    'text' => 'Respaldos',
+                    'route'  => 'admin.respaldos.index',
+                    'icon' => 'fas fa-cloud-download-alt text-blue',
+                    'active' => ['admin/backup*'],
+                ],
+            ],
+
         ],
+
     ],
 
     /*
@@ -397,7 +426,6 @@ return [
     'filters' => [
         JeroenNoten\LaravelAdminLte\Menu\Filters\GateFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\HrefFilter::class,
-        JeroenNoten\LaravelAdminLte\Menu\Filters\SearchFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\ActiveFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\ClassesFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\LangFilter::class,
@@ -412,7 +440,7 @@ return [
     | Here we can modify the plugins used inside the admin panel.
     |
     | For detailed instructions you can look the plugins section here:
-    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Plugins-Configuration
+    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Other-Configuration
     |
     */
 
@@ -487,38 +515,15 @@ return [
                 ],
             ],
         ],
-    ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | IFrame
-    |--------------------------------------------------------------------------
-    |
-    | Here we change the IFrame mode configuration. Note these changes will
-    | only apply to the view that extends and enable the IFrame mode.
-    |
-    | For detailed instructions you can look the iframe mode section here:
-    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/IFrame-Mode-Configuration
-    |
-    */
-
-    'iframe' => [
-        'default_tab' => [
-            'url' => null,
-            'title' => null,
-        ],
-        'buttons' => [
-            'close' => true,
-            'close_all' => true,
-            'close_all_other' => true,
-            'scroll_left' => true,
-            'scroll_right' => true,
-            'fullscreen' => true,
-        ],
-        'options' => [
-            'loading_screen' => 1000,
-            'auto_show_new_tab' => true,
-            'use_navbar_items' => true,
+        'BsCustomFileInput' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/bs-custom-file-input/bs-custom-file-input.min.js',
+                ],
+            ],
         ],
     ],
 
@@ -531,7 +536,6 @@ return [
     |
     | For detailed instructions you can look the livewire here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Other-Configuration
-    |
     */
 
     'livewire' => true,

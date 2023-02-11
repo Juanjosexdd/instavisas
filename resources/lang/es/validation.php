@@ -116,6 +116,7 @@ return [
     'unique'               => 'El valor del campo :attribute ya está en uso.',
     'uploaded'             => 'El campo :attribute no se pudo subir.',
     'url'                  => 'El formato del campo :attribute es inválido.',
+    'currentpass'          => 'La :attribute es incorrecta',
     'uuid'                 => 'El campo :attribute debe ser un UUID válido.',
 
     /*
@@ -131,7 +132,7 @@ return [
 
     'custom' => [
         'attribute-name' => [
-            'rule-name' => 'custom-message',
+            'rule-name' => 'custom-message'
         ],
     ],
 
@@ -146,6 +147,55 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'title' => 'Titulo',
+        'content' => 'Contenido',
+        'name' => 'nombre',
+        'last_name' => 'apellidos',
+        'phone' => 'telefono',
+        'title' => 'Titulo',
+        'content' => 'Contenido',
+        'name' => 'nombre',
+        'lastname' => 'apellidos',
+        'phone' => 'telefono',
+        'cedula' => 'cedula',
+        'slug' => 'nombre',
+        'tipodocumento_id' => 'documento',
+        'clacificacion_id' => 'clacificacion',
+        'departamento_id' => 'departamento',
+        'cargo_id' => 'cargo',
+        'empleado_id' => 'Solicitante',
+        'username' => 'nombre de usuario',
+        'email'                 => 'correo electrónico',
+        'first_name'            => 'nombre',
+        'last_name'             => 'apellido',
+        'password'              => 'contraseña',
+        'password_confirmation' => 'confirmación de la contraseña',
+        'current_password'      => 'contraseña actual',
+        'city'                  => 'ciudad',
+        'country'               => 'país',
+        'address'               => 'dirección',
+        'phone'                 => 'teléfono',
+        'mobile'                => 'móvil',
+        'age'                   => 'edad',
+        'sex'                   => 'sexo',
+        'gender'                => 'género',
+        'year'                  => 'año',
+        'month'                 => 'mes',
+        'day'                   => 'día',
+        'hour'                  => 'hora',
+        'minute'                => 'minuto',
+        'second'                => 'segundo',
+        'title'                 => 'título',
+        'content'               => 'contenido',
+        'body'                  => 'contenido',
+        'description'           => 'descripción',
+        'excerpt'               => 'extracto',
+        'date'                  => 'fecha',
+        'time'                  => 'hora',
+        'subject'               => 'asunto',
+        'message'               => 'mensaje',
+
+    ],
 
 ];

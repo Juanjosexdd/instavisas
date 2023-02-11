@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'INSTAVISAS | CREAR CLIENTE')
+@section('title', 'InstaVisa | CREAR CLIENTE')
 
 @section('content')
     @include('sweetalert::alert')

@@ -1,14 +1,15 @@
+
 <!DOCTYPE html>
 <html>
 <head>
 	<!-- Basic Page Info -->
 	<meta charset="utf-8">
-	<title>INSTAVISAS</title>
+	<title>InstaVisas</title>
 
 	<!-- Site favicon -->
-	<link rel="apple-touch-icon" sizes="180x180" href="{{asset('vendor/adminlte/dist/img/instavisas.png')}}">
-	<link rel="icon" type="image/png" sizes="32x32" href="{{asset('vendor/adminlte/dist/img/instavisas.png')}}">
-	<link rel="icon" type="image/png" sizes="16x16" href="{{asset('vendor/adminlte/dist/img/instavisas.png')}}">
+	<link rel="apple-touch-icon" sizes="180x180" href="{{asset('vendores/images/logo.png')}}">
+	<link rel="icon" type="image/png" sizes="32x32" href="{{asset('vendores/images/logo.png')}}">
+	<link rel="icon" type="image/png" sizes="16x16" href="{{asset('vendores/images/logo.png')}}">
 
 	<!-- Mobile Specific Metas -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -47,7 +48,7 @@
 		<div class="container-fluid d-flex justify-content-between align-items-center">
 			<div class="brand-logo">
 				<a href="{{ route('login') }}">
-					<img src="{{asset('vendor/adminlte/dist/img/instavisas.png')}}" width="50" alt="">
+					<img src="{{asset('vendores/images/logo.png')}}" width="50" alt="">
 				</a>
 			</div>
 		</div>
@@ -63,36 +64,44 @@
 						<div class="login-title">
 							<h2 class="text-center text-primary">Iniciar Sesión</h2>
 						</div>
-						<form method="POST" action="{{ route('login') }}">
-                            @csrf                            <div>
-                                <x-jet-label for="email" value="{{ __('Correo Electronico') }}" />
-                                <x-jet-input id="email" class="block form-control mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-                            </div>
-                
-                            <div class="mt-4">
-                                <x-jet-label for="password" value="{{ __('Contraseña') }}" />
-                                <x-jet-input id="password" class="block form-control mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
-                            </div>
-                
-                            <div class="block mt-4">
-                                <label for="remember_me" class="flex items-center">
-                                    <x-jet-checkbox id="remember_me" name="remember" />
-                                    <span class="ml-2 text-sm text-gray-600">{{ __('Recordarme') }}</span>
-                                </label>
-                            </div>
-                
-                            <div class="flex items-centermt-4">
-                                {{-- @if (Route::has('password.request'))
-                                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                                        {{ __('Forgot your password?') }}
-                                    </a>
-                                @endif --}}
-                
-                                <x-jet-button class="btn bg-primary btn-block">
-                                    {{ __('Iniciar sesión') }}
-                                </x-jet-button>
-                            </div>
-                        </form>
+						<form  method="POST" action="{{ route('login') }}" autocomplete="off">
+                            @csrf
+							<div class="input-group custom">
+								{{ Form::text('username', null, ['class' => 'form-control form-control-lg' . ($errors->has('username') ? ' is-invalid' : ''), 'placeholder' => 'Usuario']) }}
+								{{-- <input type="text" class="form-control form-control-lg" id="username" name="username" placeholder="Usuario"> --}}
+								<div class="input-group-append custom">
+									<span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>
+								</div>
+								{!! $errors->first('username', ' <div class="invalid-feedback text-center"><strong>:message</strong></div>') !!}
+
+							</div>
+							<div class="input-group custom">
+								{{-- <input type="password" id="password" name="password" class="form-control form-control-lg" placeholder="**********"> --}}
+								{!! Form::password('password', ['class' => 'form-control form-control-lg' . ($errors->has('password') ? ' is-invalid' : ''), 'placeholder' => 'Contraseña']) !!}
+								{!! $errors->first('password', ' <div class="invalid-feedback text-center"><strong>:message</strong></div>') !!}
+				
+								<div class="input-group-append custom">
+									<span class="input-group-text"><i class="dw dw-padlock1"></i></span>
+								</div>
+							</div>
+							<div class="row pb-30">
+								<div class="col-6">
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input" id="customCheck1">
+										<label class="custom-control-label" for="customCheck1">Recordarme</label>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="input-group mb-0">
+										
+										<input class="btn btn-primary btn-lg btn-block" type="submit" value="Iniciar Sesión">
+										
+									</div>
+								</div>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
