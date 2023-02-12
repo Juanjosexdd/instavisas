@@ -178,8 +178,7 @@ return [
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
-        RealRashid\SweetAlert\SweetAlertServiceProvider::class,
-        Yajra\DataTables\DataTablesServiceProvider::class,
+        // RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
 
     ],
@@ -234,7 +233,6 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
 
