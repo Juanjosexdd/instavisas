@@ -359,10 +359,6 @@ return [
             'active' => ['admin/citapasaporte*'],
         ],
         [
-            'header' => 'AJUSTES DE SISTEMA',
-            // 'can'  => 'ajustessistema'
-        ],
-        [
             'header' => 'SEGURIDAD DEL SISTEMA',
             // 'can'  => 'seguridadsistema'
         ],

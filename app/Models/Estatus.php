@@ -20,6 +20,10 @@ class Estatus extends Model
     {
         return $this->belongsToMany(Cliente::class);
     }
+    public function tramites()
+    {
+        return $this->belongsToMany(Tramite::class);
+    }
        
 
 }

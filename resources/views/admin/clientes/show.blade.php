@@ -82,6 +82,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                            
                             @foreach ($cliente->tramites as $tramite)
                                 <tr class="text-secondary font-weight-bold text-sm">
                                     <td>
@@ -89,17 +90,9 @@
                                     </td>
                                     <td>
                                         {{ $tramite->name }}
+                                        
                                     </td>
                                     <td>
-                                        <span class=" badge badge-success font-italic">APROBADO</span>
-
-                                        {{-- {{$tramite->estatus->name}}</span> --}}
-                                        {{-- @if ($tramite->estatus_id == 1)
-                                            <span class="text-muted font-italic">APROBADO</span>
-                                        @else
-                                            <span class="text-muted">{{ $cliente->cita_embajada }}</span>
-                                        @endif --}}
-                                        {{-- {{ $tramite->estatus_id }} --}}
 
                                     </td>
                                 </tr>
@@ -115,14 +108,15 @@
                         <thead>
                             <tr>
                                 <th>Identificación</th>
-                                <th>Nombres</th>
-                                <th>
+                                <th>Nombres
                                     <button type="button"
                                         class="btn bg-navy btn-xs float-right ml-1 px-3 pt-0 pb-0 elevation-4"
                                         data-toggle="modal" data-target="#modal-lg">
                                         <i class="fas fa-plus mt-2 px-3"></i>
                                     </button>
                                 </th>
+                                    
+                                
                             </tr>
                         </thead>
                         <tbody>

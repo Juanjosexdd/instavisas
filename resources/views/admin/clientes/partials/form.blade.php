@@ -182,9 +182,6 @@
     </div>
 </div>
 <br>
-<hr>
-
-<br>
 @section('css')
     {{-- <link rel="stylesheet" href="{{asset('vendor/select2/css/bootstrap-select.min.css')}}"> --}}
     <link rel="stylesheet" href="{{ asset('vendor/select2/select2.min.css') }}">

@@ -56,9 +56,11 @@ class UserController extends Controller
             . date('H:m:i') . ' del día: ' . date('d/m/Y');
         $log->save();
 
+
+        $tipodocumentos  = DB::table('tipodocumentos')->pluck('abreviado' , 'id');
         $roles = Role::all();
 
-        return view('admin.users.create', compact('usuarios','roles'));
+        return view('admin.users.create', compact('usuarios','roles','tipodocumentos'));
     }
 
     /**
@@ -67,9 +69,9 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserRequest $request)
+    public function store(Request $request)
     {
-        //return $request;
+        // dd($request);
         $user = User::create($request->all());
         if ($request->roles) {
             $user->roles()->sync($request->get('roles', 'user'));
@@ -155,10 +157,11 @@ class UserController extends Controller
         $log->user_id = auth()->user()->id;
         $log->tx_descripcion = 'El usuario: ' . auth()->user()->name . ' Ha ingresado a ver la ficha del usuario: ' . $user->name . ' ' . $user->last_name . ' a las: ' . date('H:m:i') . ' del día: ' . date('d/m/Y');
         $log->save();
+
         $roles = Role::all();
         
 
-        return view('admin.users.show', compact('cargos', 'roles', 'user'));
+        return view('admin.users.show', compact('roles', 'user'));
     }
 
 

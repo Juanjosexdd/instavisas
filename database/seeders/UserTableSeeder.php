@@ -23,7 +23,8 @@ class UserTableSeeder extends Seeder
             'slug' => 'admin',
             'last_name' => 'Admin',
             'email' => 'admin@mail.com',
-            'password' => 'admin'
+            'password' => 'admin',
+            'tipodocumento_id' => 1
         ])->assignRole('ADMINISTRADOR');
 
         User::create([
@@ -33,7 +34,8 @@ class UserTableSeeder extends Seeder
             'slug' => 'usuario',
             'last_name' => 'Usuario',
             'email' => 'usuario@mail.com',
-            'password' => 'usuario'
+            'password' => 'usuario',
+            'tipodocumento_id' => 1
         ])->assignRole('USUARIO');
     }
 }

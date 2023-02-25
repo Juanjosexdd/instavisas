@@ -22,6 +22,14 @@ class CreateAddFoireignKeyDatosAtUsersTable extends Migration
             $table->string("phone")->after('address')->nullable();
             $table->string("phone2")->after('phone')->nullable();
             $table->boolean('estatus')->default(1)->after('phone2')->nullable();
+
+            $table->unsignedBigInteger("tipodocumento_id")->after('id')->nullable();
+            
+            $table->foreign('tipodocumento_id')
+                  ->references('id')
+                  ->on('tipodocumentos')
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
         });
     }
 

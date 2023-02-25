@@ -19,7 +19,7 @@
         <div class="card elevation-4 col-md-12 col-sm-12" style="border-radius: 0.95rem">
             <div class="card-body">
                 <div class="row justify-content">
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                         <p class="h3 text-blue">Información Personal</p>
                         <hr>
                         @if (Laravel\Fortify\Features::canUpdateProfileInformation())
@@ -49,29 +49,6 @@
 
 @section('js')
     <script>
-        function sendMarkRequest(id = null) {
-            return $.ajax("{{ route('markNotification') }}", {
-                method: 'POST',
-                data: {
-                    _token: "{{ csrf_token() }}",
-                    id
-                }
-            });
-        }
-        $(function() {
-            $('.mark-as-read').click(function() {
-                let request = sendMarkRequest($(this).data('id'));
-                request.done(() => {
-                    $(this).parents('div.alert').remove();
-                });
-            });
-            $('#mark-all').click(function() {
-                let request = sendMarkRequest();
-
-                request.done(() => {
-                    $('div.alert').remove();
-                })
-            });
-        });
+        
     </script>
 @stop

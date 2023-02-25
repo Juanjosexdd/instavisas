@@ -29,8 +29,6 @@ class UserRequest extends FormRequest
                 'slug' => 'required|min:3|max:20',
                 'last_name' => 'required|min:3|max:20',
                 'tipodocumento_id' => 'required|not_in:0',
-                'cargo_id' => 'required|not_in:0',
-                'departamento_id' => 'required|not_in:0',
                 'cedula' => 'required|unique:users,cedula' . $this->user,
                 'phone' => 'required',
                 'email' => 'required|unique:users,email' . $this->user,

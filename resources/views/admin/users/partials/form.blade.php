@@ -22,7 +22,13 @@
             </div>
         </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-1">
+        {!! Form::label('tipodocumento_id', 'N : ', ['class' => 'text-blue']) !!} <span class="text-danger">*</span>
+        {!! Form::select('tipodocumento_id', $tipodocumentos, null, ['class' => 'form-control select2' . ($errors->has('tipodocumento_id') ? ' is-invalid' : '')]) !!}
+        {!! $errors->first('tipodocumento_id', ' <div class="invalid-feedback text-center"><strong>:message</strong></div>') !!}
+
+    </div>
+    <div class="col-md-3">
         <div class="form-group">
             {!! Form::label('cedula', 'Cedula : ', ['class' => 'text-blue']) !!} <span class="text-danger">*</span>
             <div class="input-group mb-3">

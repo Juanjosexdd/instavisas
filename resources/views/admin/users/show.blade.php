@@ -112,30 +112,6 @@
 
                 </div>
                 <br>
-                
-                <p class="h3 text-blue">Información Institucional</p>
-                <hr>
-                <div class="row">
-                    <div class="col-sm-3 invoice-col">
-                        <strong class="font-14 text-blue">Departamento</strong><br>
-                        <span class="text-muted">{{ $user->departamento->nombre }}</span>
-
-                    </div>
-                    <div class="col-sm-3 invoice-col">
-                        <strong class="font-14 text-blue">Cargo</strong><br>
-                        <span class="text-muted">{{ $user->cargo->nombre }}</span>
-
-                    </div>
-                    {{-- <div class="col-sm-3 invoice-col">
-                    <strong class="font-14 text-blue">Genero</strong><br>
-                    @if ($user->genero == 'M')
-                        <i class="icon-copy font-30 text-light-blue fi-male"></i>
-                    @else
-                        <i class="icon-copy font-30 text-light-purple fi-female"></i>
-                    @endif
-                </div> --}}
-                </div>
-                <br>
                 <div class="row invoice-info">
                     <div class="col-sm-12  invoice-col">
                         <strong class="font-14 text-blue">Permisos del usuario</strong><br><br>
@@ -156,30 +132,6 @@
 
 @section('js')
 <script>
-    function sendMarkRequest(id = null) {
-        return $.ajax("{{ route('markNotification') }}", {
-            method: 'POST',
-            data: {
-                _token: "{{ csrf_token() }}",
-                id
-            }
-        });
-    }
-    $(function() {
-        $('.mark-as-read').click(function() {
-            let request = sendMarkRequest($(this).data('id'));
-            request.done(() => {
-                $(this).parents('div.alert').remove();
-            });
-        });
-        $('#mark-all').click(function() {
-            let request = sendMarkRequest();
-
-            request.done(() => {
-                $('div.alert').remove();
-            })
-        });
-    });
 
 </script>
 @stop

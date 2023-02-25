@@ -16,6 +16,10 @@ class EstatusSeeder extends Seeder
     public function run()
     {
         Estatus::create([
+            'name' => 'PENDIENTE',
+            'slug' => 'pendiente'
+        ]);
+        Estatus::create([
             'name' => 'APROBADO',
             'slug' => 'probado'
         ]);
