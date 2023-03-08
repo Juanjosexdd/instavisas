@@ -8,8 +8,9 @@
         <h3 class="text-white">Ficha de {{ $cliente->name }}</h3>
     </x-card-header>
     <x-card-body>
-
+        
         <div class="invoice p-3 mb-3" style="border-radius: 0.95rem" bis_skin_checked="1">
+            <a href="{{ route('clientes.edit', $cliente) }}" class="btn bg-navy float-right ml-1 px-3 pt-1 pb-1 elevation-4"><i class="fas fa-edit mt-2 px-3"></i></a>
 
             <div class="row" bis_skin_checked="1">
                 <div class="col-12" bis_skin_checked="1">

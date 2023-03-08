@@ -1,4 +1,4 @@
-<a href=" {{ route('tramites.index') }} " class="float-right btn bg-navy btn-sm px-3 py-2 elevation-4"><i
+<a href=" {{ route('clientes.index') }} " class="float-right btn bg-navy btn-sm px-3 py-2 elevation-4"><i
         class="fas fa-reply"></i> Volver</a>
 <p class="h3 text-blue">Información Personal</p>
 <hr>
@@ -7,11 +7,13 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    {!! Form::label('name', 'Nombres & ', ['class' => 'text-blue']) !!} {!! Form::label('slug', 'slug :', ['class' => 'text-blue']) !!} <span class="text-danger">*</span>
+                    {!! Form::label('name', 'Nombres ', ['class' => 'text-blue']) !!}  <span class="text-danger">*</span>
                     <div class="input-group mb-3">
                         {{ Form::text('name', null, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
-                        {!! $errors->first('nombres', ' <div class="invalid-feedback text-center"><strong>:message</strong></div>') !!}
-                        {!! Form::hidden('slug', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el slug', 'readonly']) !!}
+                        {!! $errors->first('name', ' <div class="invalid-feedback text-center"><strong>:message</strong></div>') !!}
+
+                        <input type="hidden" name="slug" id="slug">
+                        {{-- {!! Form::hidden('slug', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el slug', 'readonly']) !!} --}}
                     </div>
                 </div>
             </div>
@@ -75,7 +77,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     {!! Form::label('phone', 'Celular : ', ['class' => 'text-blue']) !!} <span class="text-danger">*</span>
-                    <div class="input-group" bis_skin_checked="1">
+                    <div class="input-group" >
                         {!! Form::text('phone', null, [
                             'class' => 'form-control' . ($errors->has('phone') ? ' is-invalid' : ''),
                             'placeholder' => 'Celular',
@@ -87,7 +89,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     {!! Form::label('phone2', 'Telefono : ', ['class' => 'text-blue']) !!}
-                    <div class="input-group" bis_skin_checked="1">
+                    <div class="input-group">
                         {!! Form::number('phone2', null, ['class' => 'form-control', 'placeholder' => 'Telefono']) !!}
                     </div>
                 </div>
@@ -128,7 +130,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     {!! Form::label('user', 'Usuario : ', ['class' => 'text-blue']) !!} <span class="text-danger">*</span>
-                    <div class="input-group" bis_skin_checked="1">
+                    <div class="input-group" >
                         {!! Form::text('user', null, [
                             'class' => 'form-control' . ($errors->has('user') ? ' is-invalid' : ''),
                             'placeholder' => 'Usuario',
@@ -140,7 +142,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     {!! Form::label('password', 'Contraseña : ', ['class' => 'text-blue']) !!} <span class="text-danger">*</span>
-                    <div class="input-group" bis_skin_checked="1">
+                    <div class="input-group" >
                         {!! Form::text('password', null, [
                             'class' => 'form-control' . ($errors->has('password') ? ' is-invalid' : ''),
                             'placeholder' => 'Contraseña',
@@ -151,8 +153,22 @@
             </div>
         </div>
         <div class="row">
+            <div class="col-md-6">
+                <div class="form-group" >
+                    {!! Form::label('cita_cas', 'Cita CAS : ', ['class' => 'text-blue']) !!}                  
+                    {{ Form::date('cita_cas', null, ['class' => 'form-control']) }}
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group" >
+                    {!! Form::label('cita_embajada', 'Cita Embajada : ', ['class' => 'text-blue']) !!}
+                    {{ Form::date('cita_embajada', null, ['class' => 'form-control']) }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-md-12">
-                <div class="form-group" bis_skin_checked="1">
+                <div class="form-group" >
                     {!! Form::label('observation', 'Observación : ', ['class' => 'text-blue']) !!}
                     {!! Form::textarea('observation', null, [
                         'class' => 'form-control' . ($errors->has('observation') ? ' is-invalid' : ''),
@@ -205,6 +221,8 @@
         $('.select2').select2({
             placeholder: 'Selecciona una opcion'
         });
+
+
 
         $(document).ready(function() {
             $("#name").stringToSlug({

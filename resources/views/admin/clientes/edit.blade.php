@@ -12,7 +12,12 @@
 
             <a href="{{ route('clientes.create') }}" class="btn bg-navy float-right ml-1 px-3 pt-1 pb-1 elevation-4"><i class="fas fa-plus mt-2 px-3"></i>
             </a>
-        {!! Form::model($cliente, ['route' => ['clientes.update', $cliente], 'method' => 'PUT', 'autocomplete' => 'off']) !!}
+            {!! Form::model($cliente, [
+                'route' => ['clientes.update', $cliente],
+                'method' => 'PUT',
+                'autocomplete' => 'off',
+            ]) !!}
+        {{-- {!! Form::model($cliente, ['route' => ['clientes.update', $cliente], 'method' => 'PUT', 'autocomplete' => 'off']) !!} --}}
         @include('admin.clientes.partials.form')
         {!! Form::submit('Guardar cliente', ['class' => 'btn bg-navy btn-block']) !!}
         {!! Form::close() !!}

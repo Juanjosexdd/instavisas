@@ -25,8 +25,8 @@ return new class extends Migration
             $table->string('phone');
             $table->string('phone2')->nullable();
             $table->text('observation')->nullable();
-            $table->dateTime('cita_cas')->nullable();
-            $table->dateTime('cita_embajada')->nullable();
+            $table->date('cita_cas')->nullable();
+            $table->date('cita_embajada')->nullable();
             $table->string('abono')->nullable();
             $table->string('debe')->nullable();
             $table->string('total')->nullable();

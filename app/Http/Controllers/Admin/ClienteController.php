@@ -50,12 +50,15 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         $request->validate([
             'name' => 'required',
             'slug' => 'required|unique:tramites',
             'last_name' => 'required',
             'identification' => 'required',
             'email' => 'required',
+            'cita_cas' => 'nullable',
+            'cita_embajada' => 'nullable',
         ]);
         $cliente = Cliente::create($request->all());
         
@@ -110,13 +113,28 @@ class ClienteController extends Controller
      */
     public function update(Request $request, Cliente $cliente)
     {
+        //dd($cliente);
+        // $request->validate([
+        //     'name' => 'required',
+        //     'slug' => "required|unique:clientes,slug,$cliente->id",
+        //     'last_name' => 'required',
+        //     'identification' => 'required',
+        //     'email' => 'required',
+        //     'user' => 'required',
+        //     'password' => 'required',
+        //     'phone' => 'required',
+        //     'phone2' => 'nullable',
+        //     'observation' => 'nullable',
+        //     'cita_cas' => 'nullable',
+        //     'cita_embajada' => 'nullable',
+        //     'abono' => 'nullable',
+        //     'debe' => 'nullable',
+        //     'total' => 'nullable',
+        // 
         $request->validate([
-            'name' => 'required',
-            'slug' => "required|unique:clientes,slug,$cliente->id",
-            'last_name' => 'required',
-            'identification' => 'required',
-            'email' => 'required',
-        ]);
+        'slug' => "required|unique:clientes,slug,$cliente->id",
+
+]);
         
 
         $cliente->update($request->all());
