@@ -7,13 +7,11 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    {!! Form::label('name', 'Nombres ', ['class' => 'text-blue']) !!}  <span class="text-danger">*</span>
+                    {!! Form::label('name', 'Nombre & ',['class' => 'text-blue ']) !!}       {!! Form::label('slug', 'slug :',['class' => 'text-blue']) !!} <span class="text-danger">*</span>
                     <div class="input-group mb-3">
                         {{ Form::text('name', null, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
                         {!! $errors->first('name', ' <div class="invalid-feedback text-center"><strong>:message</strong></div>') !!}
-
-                        <input type="hidden" name="slug" id="slug">
-                        {{-- {!! Form::hidden('slug', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el slug', 'readonly']) !!} --}}
+                        {!! Form::hidden('slug', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el slug' ,'readonly']) !!}
                     </div>
                 </div>
             </div>
@@ -141,11 +139,11 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    {!! Form::label('password', 'Contraseña : ', ['class' => 'text-blue']) !!} <span class="text-danger">*</span>
+                    {!! Form::label('password', 'contraseña : ', ['class' => 'text-blue']) !!} <span class="text-danger">*</span>
                     <div class="input-group" >
                         {!! Form::text('password', null, [
                             'class' => 'form-control' . ($errors->has('password') ? ' is-invalid' : ''),
-                            'placeholder' => 'Contraseña',
+                            'placeholder' => 'Usuario',
                         ]) !!}
                         {!! $errors->first('password', ' <div class="invalid-feedback text-center"><strong>:message</strong></div>') !!}
                     </div>

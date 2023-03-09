@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Cliente extends Model
 {
     use HasFactory;
-    protected $guarded = ['id','created_at','updated_at'];
+    protected $fillable = ['id','name','slug','last_name','identification','email','user','password','phone','phone2','observation','cita_cas','cita_embajada','abono','debe','total','tipodocumento_id','tipotramite_id','nacionalidad_id','created_at','updated_at'];
+
 
     public function getRouteKeyName()
     {

@@ -107,5 +107,4 @@ class User extends Authenticatable
     {
         return $this->tipodocumento->abreviado. '-' . $this->cedula . ' ' .$this->name . ' ' . $this->last_name;
     }
-
 }
