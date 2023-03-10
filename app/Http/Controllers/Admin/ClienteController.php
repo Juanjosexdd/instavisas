@@ -53,7 +53,7 @@ class ClienteController extends Controller
         // dd($request);
         $request->validate([
             'name' => 'required',
-            'slug' => 'required|unique:tramites',
+            'slug' => 'required|unique:clientes',
             'last_name' => 'required',
             'identification' => 'required',
             'email' => 'required',

@@ -38,7 +38,7 @@ class RoleSeeder extends Seeder
         //4
         Permission::create([
             'name'        => 'admin.users.edit',
-            'description' => 'Eliminar usuarios'
+            'description' => 'Editar usuarios'
         ])->syncRoles([$role1]);
         //5
         Permission::create([
@@ -83,6 +83,79 @@ class RoleSeeder extends Seeder
             'name'        => 'admin.logins.index',
             'description' => 'Ver listado de Sesiones'
         ])->syncRoles([$role1]);
+
+        ###################################····GESTION····############################################
+        //13
+        Permission::create([
+            'name'        => 'gestionclientes',
+            'description' => 'gestion de clientes'
+        ])->syncRoles([$role1]);
+        //14
+        Permission::create([
+            'name'        => 'admin.clientes.index',
+            'description' => 'Ver listado de clientes'
+        ])->syncRoles([$role1]);
+        //15
+        Permission::create([
+            'name'        => 'admin.clientes.create',
+            'description' => 'Crear clientes'
+        ])->syncRoles([$role1]);
+        //16
+        Permission::create([
+            'name'        => 'admin.clientes.edit',
+            'description' => 'Editar clientes'
+        ])->syncRoles([$role1]);
+        //17
+        Permission::create([
+            'name'        => 'admin.clientes.destroy',
+            'description' => 'Eliminar clientes'
+        ])->syncRoles([$role1]);
+        //18
+        Permission::create([
+            'name'        => 'admin.renovaciones.index',
+            'description' => 'Renovaciones'
+        ])->syncRoles([$role1]);
+        //19
+        Permission::create([
+            'name'        => 'admin.seguimientos.index',
+            'description' => 'Seguimientos',
+        ])->syncRoles([$role1]);
+        //20
+        Permission::create([
+            'name'        => 'admin.adelantos.index',
+            'description' => 'Adelantos'
+        ])->syncRoles([$role1]);
+        //21
+        Permission::create([
+            'name'        => 'admin.prioridad.index',
+            'description' => 'Prioridad'
+        ])->syncRoles([$role1]);
+        //22
+        Permission::create([
+            'name'        => 'admin.estudiante.index',
+            'description' => 'Estudiane'
+        ])->syncRoles([$role1]);
+        //23
+        Permission::create([
+            'name'        => 'admin.canada.index',
+            'description' => 'Estudiane'
+        ])->syncRoles([$role1]);
+        //24
+        Permission::create([
+            'name'        => 'admin.citapasaporte.index',
+            'description' => 'Cita Pasaporte'
+        ])->syncRoles([$role1]);
+         //25
+         Permission::create([
+            'name'        => 'seguridadsistema',
+            'description' => 'seguridad del sistema'
+        ])->syncRoles([$role1]);
+        //26
+        Permission::create([
+            'name'        => 'resplados',
+            'description' => 'seguridad del sistema'
+        ])->syncRoles([$role1]);
+
 
     }
 

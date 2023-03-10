@@ -7,7 +7,11 @@ use Illuminate\Http\Request;
 
 class RenovacionController extends Controller
 {
-    //
+    public function __construct()
+    {
+        $this->middleware('can:admin.renovaciones.index')->only('index');
+    }
+
     public function index()
     {
         return view('admin.renovaciones.index');

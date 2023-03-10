@@ -305,68 +305,89 @@ return [
             'icon'        => 'fas fa-user text-blue'
         ],
         [
-            'header' => 'GESTIÓN DE TRAMITES '
+            'header' => 'GESTIÓN DE TRAMITES ',
+            'can'  => 'gestionclientes',
         ],
         [
-            'text' => 'Gestion de clientes',
-            'route'  => 'clientes.index',
-            'icon' => 'fas text-blue fa-fw fa-users-cog',
-            'active' => ['admin/clientes*'],
-        ],
-        [
-            'text' => 'Renovación',
-            'route'  => 'renovaciones.index',
-            'icon' => 'fas text-blue fa-recycle',
-            'active' => ['admin/renovaciones*'],
-        ],
-        
-        [
-            'text' => 'Seguimiento',
-            'route'  => 'seguimientos.index',
-            'icon' => 'fas text-blue fa-recycle',
-            'active' => ['admin/seguimientos*'],
-        ],    
-        [
-            'text' => 'Adelanto',
-            'route'  => 'adelantos.index',
-            'icon' => 'fas text-blue fa-recycle',
-            'active' => ['admin/adelantos*'],
-        ],
-        [
-            'text' => 'Prioridad',
-            'route'  => 'prioridad.index',
-            'icon' => 'fas text-blue fa-user-astronaut',
-            'active' => ['admin/prioridad*'],
-        ],
-        
-        [
-            'text' => 'Estudiante',            
-            'route'  => 'estudiantes.index',
-            'icon' => 'fas text-blue fa-user-graduate',
-            'active' => ['admin/estudiantes*'],
-        ],
-        
-        [
-            'text' => 'Canadá',
-            'route'  => 'canada.index',
-            'icon' => 'fab text-blue fa-canadian-maple-leaf',
-            'active' => ['admin/canada*'],
-        ],
-        [
-            'text' => 'Cita Pasaporte',
-            'route'  => 'citapasaporte.index',
-            'icon' => 'far text-blue fa-calendar-check',
-            'active' => ['admin/citapasaporte*'],
+            'text'    => 'GESTION',
+            'icon'    => 'fas fa-fw fa-user-shield text-blue',
+            'can'  => 'gestionclientes',
+            'submenu' => [
+                [
+                    'text' => 'Gestion de clientes',
+                    'route'  => 'clientes.index',
+                    'icon' => 'fas text-blue fa-fw fa-users-cog',
+                    'active' => ['admin/clientes*'],
+                    'can' => 'admin.clientes.index'
+                ],
+                [
+                    'text' => 'Renovación',
+                    'route'  => 'renovaciones.index',
+                    'icon' => 'fas text-blue fa-recycle',
+                    'active' => ['admin/renovaciones*'],
+                    'can' => 'admin.renovaciones.index'
+
+                ],
+                [
+                    'text' => 'Seguimiento',
+                    'route'  => 'seguimientos.index',
+                    'icon' => 'fas text-blue fa-recycle',
+                    'active' => ['admin/seguimientos*'],
+                    'can' => 'admin.seguimientos.index'
+                ],    
+                [
+                    'text' => 'Adelanto',
+                    'route'  => 'adelantos.index',
+                    'icon' => 'fas text-blue fa-recycle',
+                    'active' => ['admin/adelantos*'],
+                    'can' => 'admin.adelantos.index'
+                ],
+                [
+                    'text' => 'Prioridad',
+                    'route'  => 'prioridad.index',
+                    'icon' => 'fas text-blue fa-user-astronaut',
+                    'active' => ['admin/prioridad*'],
+                    'can' => 'admin.prioridad.index'
+                ],
+                [
+                    'text' => 'Estudiante',            
+                    'route'  => 'estudiantes.index',
+                    'icon' => 'fas text-blue fa-user-graduate',
+                    'active' => ['admin/estudiantes*'],
+                    'can' => 'admin.estudiantes.index'
+                ],
+                [
+                    'text' => 'Canadá',
+                    'route'  => 'canada.index',
+                    'icon' => 'fab text-blue fa-canadian-maple-leaf',
+                    'active' => ['admin/canada*'],
+                    'can' => 'admin.canada.index'
+                ],
+                [
+                    'text' => 'Cita Pasaporte',
+                    'route'  => 'citapasaporte.index',
+                    'icon' => 'far text-blue fa-calendar-check',
+                    'active' => ['admin/citapasaporte*'],
+                    'can' => 'admin.citapasaporte.index'
+                ],
+            ],
         ],
         [
             'header' => 'SEGURIDAD DEL SISTEMA',
-            // 'can'  => 'seguridadsistema'
+            'can'  => 'seguridadsistema'
         ],
         [
             'text'    => 'SEGURIDAD SISTEMA',
             'icon'    => 'fas fa-fw fa-user-shield text-blue',
-            // 'can'  => 'seguridadsistema',
+            'can'  => 'seguridadsistema',
             'submenu' => [
+                [
+                    'text' => 'Tramites',
+                    'route'  => 'admin.tramites.index',
+                    'icon' => 'fas fa-fw fa-file text-blue',
+                    'active' => ['admin/tramites*'],
+                    'can'    => 'admin.user.index',
+                ],
                 [
                     'text' => 'Usuarios',
                     'route'  => 'admin.users.index',
