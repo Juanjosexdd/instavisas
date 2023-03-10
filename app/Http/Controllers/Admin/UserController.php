@@ -100,9 +100,11 @@ class UserController extends Controller
         $log->save();
 
         $roles = Role::all();
+        $tipodocumentos  = DB::table('tipodocumentos')->pluck('abreviado' , 'id');
+        
 
 
-        return view('admin.users.edit', compact('roles', 'user'));
+        return view('admin.users.edit', compact('roles', 'user','tipodocumentos'));
     }
 
     /**

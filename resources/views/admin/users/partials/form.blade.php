@@ -77,29 +77,10 @@
 <div class="row">
     <div class="col-md-4">
         <div class="form-group">
-            {!! Form::label('username', 'Nombre de usuario : ', ['class' => 'text-blue']) !!} <span class="text-danger">*</span>
+            {!! Form::label('username', 'Nombre de usuario : ', ['class' => 'text-blue'], 'disabled') !!} <span class="text-danger">*</span>
             <div class="input-group mb-3">
                 {{ Form::text('username', null, ['class' => 'form-control' . ($errors->has('username') ? ' is-invalid' : ''), 'placeholder' => 'Usuario']) }}
                 {!! $errors->first('username', ' <div class="invalid-feedback text-center"><strong>:message</strong></div>') !!}
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="form-group">
-            {!! Form::label('password', 'Contraseña : ', ['class' => 'text-blue']) !!}<span class="text-danger">*</span>
-            <div class="input-group mb-3">
-                {!! Form::password('password', ['class' => 'form-control' . ($errors->has('password') ? ' is-invalid' : ''), 'placeholder' => 'Contraseña']) !!}
-                {!! $errors->first('password', ' <div class="invalid-feedback text-center"><strong>:message</strong></div>') !!}
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="form-group">
-            {!! Form::label('password_confirmation', 'Contraseña : ', ['class' => 'text-blue']) !!}<span class="text-danger">*</span>
-            <div class="input-group mb-3">
-                {!! Form::password('password_confirmation', ['class' => 'form-control' . ($errors->has('password') ? ' is-invalid' : ''), 'placeholder' => 'Contraseña']) !!}
-                {!! $errors->first('password', ' <div class="invalid-feedback text-center"><strong>:message</strong></div>') !!}
-
             </div>
         </div>
     </div>
