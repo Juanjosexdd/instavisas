@@ -26,12 +26,13 @@ class Afiliado extends Model
     }
 
     //Relacion muchos a muchos
-    public function tramites()
+    public function tramiteafiliados()
     {
         return $this->belongsToMany(Tramite::class);
     }
-    public function estatus()
+    public function estatuses()
     {
         return $this->belongsToMany(Estatus::class);
     }
+
 }

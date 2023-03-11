@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tramite extends Model
+class Tramiteafiliado extends Model
 {
+    
     use HasFactory;
     protected $guarded = ['id','created_at','updated_at'];
     
@@ -14,20 +15,15 @@ class Tramite extends Model
     {
         return "slug";
     }
-    //Relacion muchos a muchos
-    public function clientes()
-    {
-        return $this->belongsToMany(Cliente::class);
-    }
+
     public function afiliados()
     {
         return $this->belongsToMany(Afiliado::class);
     }
-    public function estatuses()
+
+    public function estatus()
     {
         return $this->belongsToMany(Estatus::class);
     }
-
-    
 
 }

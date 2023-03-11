@@ -11,19 +11,13 @@ class Estatus extends Model
     protected $guarded = ['id','created_at','updated_at'];
 
     //Relacion muchos a muchos
-        public function afiliados()
-    {
-        return $this->belongsToMany(Afiliado::class);
-    }
-
-    public function clientes()
-    {
-        return $this->belongsToMany(Cliente::class);
-    }
     public function tramites()
     {
         return $this->belongsToMany(Tramite::class);
     }
-       
 
+    public function tramitesafiliados()
+    {
+        return $this->belongsToMany(Tramiteafiliado::class);
+    }
 }

@@ -8,9 +8,10 @@
         <h3 class="text-white">Ficha de {{ $cliente->name }}</h3>
     </x-card-header>
     <x-card-body>
-        
+
         <div class="invoice p-3 mb-3" style="border-radius: 0.95rem" bis_skin_checked="1">
-            <a href="{{ route('clientes.edit', $cliente) }}" class="btn bg-navy float-right ml-1 px-3 pt-1 pb-1 elevation-4"><i class="fas fa-edit mt-2 px-3"></i></a>
+            <a href="{{ route('clientes.edit', $cliente) }}"
+                class="btn bg-navy float-right ml-1 px-3 pt-1 pb-1 elevation-4"><i class="fas fa-edit mt-2 px-3"></i></a>
 
             <div class="row" bis_skin_checked="1">
                 <div class="col-12" bis_skin_checked="1">
@@ -71,19 +72,19 @@
 
 
             <div class="row" bis_skin_checked="1">
-                <div class="col-md-6 table-responsive" bis_skin_checked="1">
+                <div class="col-md-12 table-responsive" bis_skin_checked="1">
                     <h5 class="text-blue pt-2">Tramites asociados a {{ $cliente->name }}
                         {{ $cliente->last_name }}</h5>
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Nro</th>
-                                <th>Tramite</th>
-                                <th>Estatus</th>
+                                <th class="text-blue">Nro</th>
+                                <th class="text-blue">Tramite</th>
+                                <th class="text-blue">Estatus</th>
                             </tr>
                         </thead>
                         <tbody>
-                            
+
                             @foreach ($cliente->tramites as $tramite)
                                 <tr class="text-secondary font-weight-bold text-sm">
                                     <td>
@@ -91,125 +92,98 @@
                                     </td>
                                     <td>
                                         {{ $tramite->name }}
-                                        
+
                                     </td>
                                     <td>
-
+                                        {{ $tramite->estatuses->last()->name }}
                                     </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
                 </div>
-                <div class="col-md-6 table-responsive" bis_skin_checked="1">
+
+
+            </div>
+            <div class="row">
+                <div class="col-md-12 table-responsive" bis_skin_checked="1">
                     <h5 class="text-blue pt-2">Grupo familiar de {{ $cliente->name }}
                         {{ $cliente->last_name }}</h5>
 
                     <table class="table table-striped">
                         <thead>
-                            <tr>
-                                <th>Identificación</th>
-                                <th>Nombres
+                            <tr >
+                                <th class="text-blue">Identificación</th>
+                                <th class="text-blue">Nombres</th>
+                                <th class="text-blue">
+                                    Tramite
+                                </th>
+                                <th>
                                     <button type="button"
                                         class="btn bg-navy btn-xs float-right ml-1 px-3 pt-0 pb-0 elevation-4"
                                         data-toggle="modal" data-target="#modal-lg">
                                         <i class="fas fa-plus mt-2 px-3"></i>
                                     </button>
                                 </th>
-                                    
-                                
+
+
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($cliente->afiliados as $afiliado)
-                                <tr class="text-secondary font-weight-bold text-sm">
+                                <tr data-widget="expandable-table" class="text-secondary font-weight-bold text-sm">
                                     <td>
-                                        {{ $afiliado->tipodocumento->abreviado }}-{{ $afiliado->identification }}
-                                    </td>
+                                        <a href="" data-toggle="modal" data-target="#modal-lg">
+                                            
+                                            {{ $afiliado->tipodocumento->abreviado }}-{{ $afiliado->identification }}
+                                        </a>
+                                        </td>
                                     <td>
                                         {{ $afiliado->name }} - {{ $afiliado->last_name }}
                                         <p class="d-block">{{ $afiliado->email }}</p>
-
+                                    </td>
+                                    <td>  
+                                        @foreach ($afiliado->tramiteafiliados as $tramiteafiliado)
+                                            {{$tramiteafiliado->name}}
+                                            <br>
+                                            @foreach ($tramiteafiliado->estatus as $status)
+                                                {{$status->name}}
+                                            @endforeach
+                                        @endforeach
+                                        
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-default btn-sm elevation-2"
+                                            data-toggle="modal" data-target="#modal-edit">
+                                            <i class="fas fa-edit px-1 py-1 text-blue"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
                 </div>
-
-            </div>
-
-            {{-- <div class="row" bis_skin_checked="1">
-
-                <div class="col-6" bis_skin_checked="1">
-                    <p class="lead">Payment Methods:</p>
-                    <img src="../../dist/img/credit/visa.png" alt="Visa">
-                    <img src="../../dist/img/credit/mastercard.png" alt="Mastercard">
-                    <img src="../../dist/img/credit/american-express.png" alt="American Express">
-                    <img src="../../dist/img/credit/paypal2.png" alt="Paypal">
-                    <p class="text-muted well well-sm shadow-none" style="margin-top: 10px;">
-                        Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem
-                        plugg
-                        dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
-                    </p>
-                </div>
-
-                <div class="col-6" bis_skin_checked="1">
-                    <p class="lead">Amount Due 2/22/2014</p>
-                    <div class="table-responsive" bis_skin_checked="1">
-                        <table class="table">
-                            <tbody>
-                                <tr>
-                                    <th style="width:50%">Subtotal:</th>
-                                    <td>$250.30</td>
-                                </tr>
-                                <tr>
-                                    <th>Tax (9.3%)</th>
-                                    <td>$10.34</td>
-                                </tr>
-                                <tr>
-                                    <th>Shipping:</th>
-                                    <td>$5.80</td>
-                                </tr>
-                                <tr>
-                                    <th>Total:</th>
-                                    <td>$265.24</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-            </div> --}}
-
-
-            <div class="row no-print" bis_skin_checked="1">
-                <div class="col-12" bis_skin_checked="1">
-                    <a href="invoice-print.html" rel="noopener" target="_blank" class="btn btn-default"><i
-                            class="fas fa-print"></i> Print</a>
-                    <button type="button" class="btn btn-success float-right"><i class="far fa-credit-card"></i> Submit
-                        Payment
-                    </button>
-                    <button type="button" class="btn btn-primary float-right" style="margin-right: 5px;">
-                        <i class="fas fa-download"></i> Generate PDF
-                    </button>
-                </div>
             </div>
         </div>
     </x-card-body>
 
 
-    <div class="modal fade" id="modal-lg" bis_skin_checked="1" aria-hidden="true" style="display: none;">
+    @include('admin.clientes.partials.modal-create')
+    <div class="modal fade" id="modal-edit" bis_skin_checked="1" aria-hidden="true" style="display: none;">
         <div class="modal-dialog modal-lg" bis_skin_checked="1">
             <div class="modal-content" bis_skin_checked="1">
                 <div class="modal-header" bis_skin_checked="1">
-                    <h4 class="modal-title">Registro de afiliado.</h4>
+                    <h4 class="modal-title">Editar de afiliado.</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body" bis_skin_checked="1">
-                    {!! Form::open(['route' => 'afiliados.store']) !!}
+                    {!! Form::model($afiliado, [
+                        'route' => ['afiliados.update', $afiliado],
+                        'method' => 'PUT',
+                        'autocomplete' => 'off',
+                    ]) !!}
                     <div class="row">
                         <div class="col-md-8">
                             <div class="row">
@@ -220,7 +194,8 @@
                                             {{ Form::text('name', null, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
                                             {!! $errors->first('nombres', ' <div class="invalid-feedback text-center"><strong>:message</strong></div>') !!}
                                             {!! Form::hidden('slug', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el slug', 'readonly']) !!}
-                                            <input type="hidden" name="cliente_id" id="cliente_id" value="{{$cliente->id}}">
+                                            <input type="hidden" name="cliente_id" id="cliente_id"
+                                                value="{{ $cliente->id }}">
                                         </div>
                                     </div>
 
@@ -394,13 +369,18 @@
                 <div class="modal-footer justify-content-between" bis_skin_checked="1">
                     {!! Form::submit('Guardar afiliado', ['class' => 'btn bg-navy btn-block']) !!}
                     {!! Form::close() !!}
-
                 </div>
             </div>
 
         </div>
 
     </div>
+
+
+
+
+
+
 @stop
 
 @section('footer')
@@ -443,6 +423,8 @@
             "text": "Notificación Básica",
             "showConfirmButton": false
         });
+
+        $('#expandable-table').ExpandableTable('toggleRow')
     </script>
 @stop
 @section('css')

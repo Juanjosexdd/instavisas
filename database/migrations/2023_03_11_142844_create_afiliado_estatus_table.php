@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateAfiliadoEstatusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('afiliado_tramite', function (Blueprint $table) {
+        Schema::create('afiliado_estatus', function (Blueprint $table) {
             $table->id();
-
-            $table->unsignedBigInteger('afiliado_id');
             $table->unsignedBigInteger('tramite_id');            
+            $table->unsignedBigInteger('estatus_id')->default(1);
 
-            $table->foreign('afiliado_id')->references('id')->on('afiliados')->onDelete('cascade')->onUpdate('cascade');            
+            $table->foreign('estatus_id')->references('id')->on('estatuses')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('tramite_id')->references('id')->on('tramiteafiliados')->onDelete('cascade')->onUpdate('cascade');
-
             $table->timestamps();
         });
     }
@@ -33,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cliente_tramite');
+        Schema::dropIfExists('afiliado_estatus');
     }
-};
+}

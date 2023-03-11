@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-
+use App\Models\Afiliado;
 use App\Models\Cliente;
+use App\Models\Detalleestatustramite;
 use App\Models\Tramite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -50,7 +51,7 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
+        //dd($request);
         $request->validate([
             'name' => 'required',
             'slug' => 'required|unique:clientes',
@@ -65,6 +66,14 @@ class ClienteController extends Controller
         if ($request->tramites)
         {
             $cliente->tramites()->attach($request->tramites);
+        }
+        $cont = 0;
+        while ($cont < count($request->tramites)) {
+            $detalle = new Detalleestatustramite();
+            $detalle->tramite_id = $request->tramites[$cont];
+            $detalle->estatus_id = 1;
+            $detalle->save();
+            $cont = $cont + 1;
         }
 
         return redirect()->route('clientes.index')->with('success', ' ¡Felicidades el cliente se registro con éxito!');
@@ -83,8 +92,9 @@ class ClienteController extends Controller
         $nacionalidads  = DB::table('nacionalidads')->pluck('name' , 'id');
 
         $tramites = Tramite::all();
+        $afiliado = Afiliado::all();
 
-        return view('admin.clientes.show', compact('cliente','tipodocumentos','tipotramites','nacionalidads','tramites'));
+        return view('admin.clientes.show', compact('cliente','tipodocumentos','tipotramites','nacionalidads','tramites','afiliado'));
     }
 
     /**
@@ -133,7 +143,7 @@ class ClienteController extends Controller
             'tipodocumento_id' => 'nullable',
             'tipotramite_id' => 'nullable',
             'nacionalidad_id' => 'nullable',
-            ]);
+        ]);
         
 
         $cliente->update($request->all());
@@ -142,7 +152,7 @@ class ClienteController extends Controller
             $cliente->tramites()->sync($request->tramites);
         }
 
-        return redirect()->route('clientes.index')->with('success', ' ¡Felicidades el tramite se actualizó con éxito!');
+        return redirect()->route('clientes.shwow', compact('cliente'))->with('success', ' ¡Felicidades el tramite se actualizó con éxito!');
     }
 
     /**

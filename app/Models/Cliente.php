@@ -15,6 +15,8 @@ class Cliente extends Model
     {
         return "slug";
     }
+
+
     //Relacion uno a muchos
 
     public function afiliados()
@@ -39,12 +41,11 @@ class Cliente extends Model
     }
 
     //Relacion muchos a muchos
+
     public function tramites()
     {
-        return $this->belongsToMany(Tramite::class);
-    }
-    public function estatus()
-    {
-        return $this->belongsToMany(Estatus::class);
+        return $this->belongsToMany(Tramite::class)
+                    ->withPivot('estatus_id')
+                    ->withPivotValue(['estatus_id' => 1]);
     }
 }
