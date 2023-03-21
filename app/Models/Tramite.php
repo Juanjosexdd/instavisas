@@ -27,6 +27,11 @@ class Tramite extends Model
     {
         return $this->belongsToMany(Estatus::class);
     }
+    public function estatusafiliado()
+    {
+        return $this->belongsToMany(Estatus::class);
+    }
+
 
     
 

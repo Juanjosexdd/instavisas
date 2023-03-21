@@ -13,7 +13,7 @@ class Detalleestatustramiteafiliado extends Model
 
     protected $guarded = ['id','created_at','updated_at'];
 
-    public function estatus()
+    public function estatus20()
     {
         return $this->belongsTo(Estatus::class);
     }

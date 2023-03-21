@@ -146,7 +146,7 @@
                                         @foreach ($afiliado->tramiteafiliados as $tramiteafiliado)
                                             {{$tramiteafiliado->name}}
                                             <br>
-                                            @foreach ($tramiteafiliado->estatus as $status)
+                                            @foreach ($tramiteafiliado->estatusafiliado as $status)
                                                 {{$status->name}}
                                             @endforeach
                                         @endforeach
