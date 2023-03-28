@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'MAKRO | PERFIL DE USUARIO')
+@section('title', 'INSTAVISAS | PERFIL DE USUARIO')
 
 @section('css')
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">

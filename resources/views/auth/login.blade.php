@@ -30,6 +30,10 @@
 
 		gtag('config', 'UA-119386393-1');
 	</script>
+
+<style>
+	
+</style>
 </head>
 <body class="login-page">
     {{-- <div class="pre-loader">
@@ -54,10 +58,10 @@
 		</div>
 	</div>
 	<div class="login-wrap d-flex align-items-center flex-wrap justify-content-center">
-		<div class="container">
+		<div class="container bg25">
 			<div class="row align-items-center">
 				<div class="col-md-6 col-lg-7">
-					<img src="vendores/images/login-page-img.png" alt="">
+					<img src="vendores/images/banner-4.png" alt="">
 				</div>
 				<div class="col-md-6 col-lg-5">
 					<div class="login-box bg-white box-shadow border-radius-10">

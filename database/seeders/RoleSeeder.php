@@ -132,7 +132,7 @@ class RoleSeeder extends Seeder
         ])->syncRoles([$role1]);
         //22
         Permission::create([
-            'name'        => 'admin.estudiante.index',
+            'name'        => 'admin.estudiantes.index',
             'description' => 'Estudiane'
         ])->syncRoles([$role1]);
         //23

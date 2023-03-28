@@ -253,7 +253,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'admin',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -331,14 +331,14 @@ return [
                 [
                     'text' => 'Seguimiento',
                     'route'  => 'seguimientos.index',
-                    'icon' => 'fas text-blue fa-recycle',
+                    'icon' => 'fas text-blue fa-eye',
                     'active' => ['admin/seguimientos*'],
                     'can' => 'admin.seguimientos.index'
                 ],    
                 [
                     'text' => 'Adelanto',
                     'route'  => 'adelantos.index',
-                    'icon' => 'fas text-blue fa-recycle',
+                    'icon' => 'fas fa-comments-dollar text-blue',
                     'active' => ['admin/adelantos*'],
                     'can' => 'admin.adelantos.index'
                 ],

@@ -114,12 +114,14 @@ class AfiliadoController extends Controller
         }
 
         $cont = 0;
-        while ($cont < count($request->tramites)) {
-            $detalle = new Detalleestatustramiteafiliado();
-            $detalle->tramite_id = $request->tramites[$cont];
-            $detalle->estatus_id = 1;
-            $detalle->save();
-            $cont = $cont + 1;
+        if ($request->tramites) {
+            while ($cont < count($request->tramites)) {
+                $detalle = new Detalleestatustramiteafiliado();
+                $detalle->tramite_id = $request->tramites[$cont];
+                $detalle->estatus_id = 1;
+                $detalle->save();
+                $cont = $cont + 1;
+            }
         }
 
         return redirect()->route('clientes.index')->with('success', ' ¡Felicidades el tramite se actualizó con éxito!');
