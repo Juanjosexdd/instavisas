@@ -80,7 +80,6 @@
                             </td>
                             <td>
                                 <a href="{{ route('clientes.show', $cliente) }}">
-
                                     {{ $cliente->name }} {{ $cliente->last_name }}
                                     <p class="d-block">{{ $cliente->email }}</p>
                                 </a>
